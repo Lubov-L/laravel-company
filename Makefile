@@ -15,4 +15,6 @@ nginx-logs:
 vendor:
 	docker compose exec php-laravel-crud bash -c "composer install"
 install: up vendor
+	@cp .env.example .env && \
 	docker compose exec php-laravel-crud bash -c "php artisan key:generate"
+
