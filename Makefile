@@ -17,4 +17,5 @@ vendor:
 install: up vendor
 	@cp .env.example .env && \
 	docker compose exec php-laravel-crud bash -c "php artisan key:generate"
-
+migrate:
+	docker compose exec php-laravel-crud bash -c "php artisan migrate"
