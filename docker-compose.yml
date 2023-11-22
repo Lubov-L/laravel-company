@@ -1,0 +1,53 @@
+version: '3.5'
+
+services:
+  nginx-laravel-crud:
+    container_name: nginx-laravel-crud
+    image: nginx:1.24
+    restart: "no"
+    ports:
+      - "80:80"
+    volumes:
+      - .:/var/www/
+      - ./.docker/config/nginx/:/etc/nginx/conf.d/
+      - ./.docker/logs/nginx:/var/log/nginx/
+    networks:
+      - web-network-laravel-crud
+
+  php-laravel-crud:
+    build:
+      context: .docker
+    container_name: php-laravel-crud
+    restart: "no"
+    working_dir: /var/www
+    volumes:
+      - .:/var/www/
+    networks:
+      - web-network-laravel-crud
+
+  mysql-laravel-crud:
+    container_name: mysql-laravel-crud
+    image: mysql:latest
+    restart: "no"
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./logs/mysql/:/var/logs/mysql
+      - db-laravel-crud:/var/lib/mysql
+    security_opt:
+      - seccomp:unconfined
+    environment:
+        MYSQL_ROOT_PASSWORD: local
+        MYSQL_DATABASE: laravel-crud
+        MYSQL_USER: laravel
+        MYSQL_PASSWORD: laravel
+    networks:
+      - web-network-laravel-crud
+
+volumes:
+  db-laravel-crud:
+    name: db-laravel-crud
+
+networks:
+  web-network-laravel-crud:
+    driver: bridge
