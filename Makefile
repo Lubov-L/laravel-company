@@ -14,3 +14,5 @@ nginx-logs:
 	docker compose logs nginx-laravel-crud
 vendor:
 	docker compose exec php-laravel-crud bash -c "composer install"
+install:
+	docker compose exec php-laravel-crud bash -c "php artisan key:generate"
