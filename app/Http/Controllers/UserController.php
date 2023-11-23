@@ -30,7 +30,8 @@ class UserController extends Controller
             Log::error('Ошибка создания пользователя, log: ' . $e->getMessage());
 
             return response()->json(
-                ['success' => false, 'error' => 'Ошибка создания пользователя']
+                ['success' => false, 'error' => 'Ошибка создания пользователя'],
+                404
             );
         }
 
@@ -86,7 +87,8 @@ class UserController extends Controller
             Log::error('Ошибка изменения пользователя, log: ' . $e->getMessage());
 
             return response()->json(
-                ['success' => false, 'error' => 'Ошибка изменения пользователя']
+                ['success' => false, 'error' => 'Ошибка изменения пользователя'],
+                404
             );
         }
 

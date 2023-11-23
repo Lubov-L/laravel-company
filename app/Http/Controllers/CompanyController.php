@@ -31,7 +31,8 @@ class CompanyController extends Controller
             Log::error('Ошибка создания компании, log: ' . $e->getMessage());
 
             return response()->json(
-                ['success' => false, 'error' => 'Ошибка создания компании']
+                ['success' => false, 'error' => 'Ошибка создания компании'],
+                404
             );
         }
 
@@ -87,7 +88,8 @@ class CompanyController extends Controller
             Log::error('Ошибка изменения компании, log: ' . $e->getMessage());
 
             return response()->json(
-                ['success' => false, 'error' => 'Ошибка изменения компании']
+                ['success' => false, 'error' => 'Ошибка изменения компании'],
+                404
             );
         }
 

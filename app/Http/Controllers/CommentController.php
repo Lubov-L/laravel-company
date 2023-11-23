@@ -24,7 +24,8 @@ class CommentController extends Controller
             Log::error('Ошибка создания комментария, log: ' . $e->getMessage());
 
             return response()->json(
-                ['success' => false, 'error' => 'Ошибка создания комментария']
+                ['success' => false, 'error' => 'Ошибка создания комментария'],
+                404
             );
         }
 
@@ -64,7 +65,7 @@ class CommentController extends Controller
 
         try {
             $comment = Comment::query()->findOrFail($id);
-        } catch (ModelNotFoundException){
+        } catch (ModelNotFoundException) {
             return response()->json(['success' => false, 'error' => 'Комментарий не найден'], 404);
         }
 
@@ -74,7 +75,8 @@ class CommentController extends Controller
             Log::error('Ошибка изменения комментария, log: ' . $e->getMessage());
 
             return response()->json(
-                ['success' => false, 'error' => 'Ошибка изменения комментария']
+                ['success' => false, 'error' => 'Ошибка изменения комментария'],
+                404
             );
         }
 
