@@ -10,6 +10,4 @@ class Company extends Model
     public $timestamps = false;
 
     protected $guarded = false;
-
-    protected $fillable = ['name', 'description', 'logo'];
 }

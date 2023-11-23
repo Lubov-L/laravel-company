@@ -9,6 +9,4 @@ class User extends Model
     public $timestamps = false;
 
     protected $guarded = false;
-
-    protected $fillable = ['name', 'surname', 'phone', 'image'];
 }

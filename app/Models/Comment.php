@@ -12,8 +12,6 @@ class Comment extends Model
 
     protected $guarded = false;
 
-    protected $fillable = ['user_id', 'company_id', 'description', 'rating'];
-
     /**
      * Выборка данных по рейтингу компаний
      */
