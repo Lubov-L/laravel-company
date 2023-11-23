@@ -26,5 +26,5 @@
 ---
 
 ### API Документация
-[документация API](https://documenter.getpostman.com/view/27410151/2s9YeBdtDq)
+[Ссылка на документацию](https://documenter.getpostman.com/view/27410151/2s9YeBdtDq)
 
